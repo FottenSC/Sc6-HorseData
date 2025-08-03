@@ -1207,7 +1207,8 @@ class Settings {
         "Entries": 30,
         "ColumnVisablity": [
             true, false, false, true, true, true, true, false, true, true, true, true, true, true
-        ]
+        ],
+        "ShowGraphs": false
     };
 
     //Settings variable where everything is stored
@@ -1279,6 +1280,15 @@ class Settings {
             $("#stanceMultiselector").prop('disabled', false);
         } else {
             $("#stanceMultiselector").prop('disabled', true);
+        }
+
+        if(this.settings.ShowGraphs){
+            $("#GraphsBT").show();
+        } else {
+            $("#GraphsBT").hide();
+            $("#graphsIcon").removeClass("fa-angles-down");
+            $("#graphsIcon").addClass("fa-angles-left");
+            $("#Graphs").collapse("hide");
         }
     }
 };
