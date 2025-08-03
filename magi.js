@@ -19,9 +19,6 @@ let Dtable;
 
 //Can refresh
 var CanRefresh = 0;
-
-var Test;
-
 //#endregion
 
 //#region Filter logic
@@ -1204,11 +1201,12 @@ class Settings {
     defaultSettings = {
         "StanceSelector": true,
         "StanceAND": true,
-        "Entries": 30,
+        "Entries": 500,
         "ColumnVisablity": [
             true, false, false, true, true, true, true, false, true, true, true, true, true, true
         ],
-        "ShowGraphs": false
+        "ShowGraphs": false,
+        "ShowFooter": true,
     };
 
     //Settings variable where everything is stored
@@ -1289,6 +1287,12 @@ class Settings {
             $("#graphsIcon").removeClass("fa-angles-down");
             $("#graphsIcon").addClass("fa-angles-left");
             $("#Graphs").collapse("hide");
+        }
+
+        if(this.settings.ShowFooter){
+            $("#daFooter").show();
+        } else {
+            $("#daFooter").hide();
         }
     }
 };
@@ -1464,7 +1468,7 @@ function createTable(data){
                 >
                 rt
                 <"my-3">
-                <"row fixed-bottom mx-0 bg-themed"
+                <"#daFooter.row fixed-bottom mx-0 bg-themed"
                     <"col-xs-12 col-sm-12 col-md-6"i>
                     <"col-xs-12 col-sm-12 col-md-6 px-0 float-right"p>
                 >
@@ -1709,7 +1713,7 @@ function applyCmdModalFilter(){
 }
 
 function updateCharts(){
-    console.log("TEST ----")
+    //console.log("TEST ----")
 }
 
 //#endregion
@@ -1721,7 +1725,7 @@ $(document).ready(function() {
     //console.log(`Starting: ${performance.now() - StartTime} milliseconds.`);
 
     //Version checker very primitive but works
-    version = "0.20"
+    version = "0.21"
     if(!localStorage.hasOwnProperty("version")){
         localStorage.setItem("version", version);
     } else {
