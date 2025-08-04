@@ -1290,9 +1290,9 @@ class Settings {
         }
 
         if(this.settings.ShowFooter){
-            $("#daFooter").show();
+            $("#daFooter").removeClass("hidden");
         } else {
-            $("#daFooter").hide();
+            $("#daFooter").addClass("hidden");
         }
     }
 };
@@ -1468,7 +1468,7 @@ function createTable(data){
                 >
                 rt
                 <"my-3">
-                <"#daFooter.row fixed-bottom mx-0 bg-themed"
+                <"#daFooter.row fixed-bottom mx-0 bg-themed ${UserSettings.settings.ShowFooter ? "" : "hidden"}"
                     <"col-xs-12 col-sm-12 col-md-6"i>
                     <"col-xs-12 col-sm-12 col-md-6 px-0 float-right"p>
                 >

@@ -28,7 +28,9 @@ table.display td {
     clip: rect(0,0,0,0);
 }
 
-
+.hidden{
+    display: none !important;
+}
 
 
 /* Makes readonly input look normal */
